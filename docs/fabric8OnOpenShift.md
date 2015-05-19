@@ -21,13 +21,14 @@ osadm policy add-cluster-role-to-user cluster-admin admin --config=openshift.loc
 
 * each namespace you wish to install fabric8 into typically requires the `openshift-cert-secrets`
 
-
 You'll also need to login and switch to the correct project (namespace):
 
 ```
 osc login
 osc project cheese
 ```
+
+You can create projects in OpenShift with `osc new-project`.
 
 Then run this command:
 
@@ -73,7 +74,7 @@ Or to install the current releases then choose the commands below to suit the ap
 
 Provides the base [fabric8 console](console.html)
 
-		osc process -v DOMAIN=$KUBERNETES_DOMAIN -f \ 
+		osc process -v DOMAIN=$KUBERNETES_DOMAIN -f \
 		http://central.maven.org/maven2/io/fabric8/apps/base/2.1.1/base-2.1.1-kubernetes.json \
 		| osc create -f -
 
